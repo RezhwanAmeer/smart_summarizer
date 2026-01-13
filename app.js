@@ -1,3 +1,11 @@
+const tg = window.Telegram?.WebApp;
+
+if (tg) {
+  tg.ready();
+  tg.expand();
+}
+
+
 const inputText = document.getElementById("inputText");
 const summarizeBtn = document.getElementById("summarizeBtn");
 const output = document.getElementById("output");
@@ -14,7 +22,14 @@ sentenceSlider.addEventListener("input", () => {
   countLabel.textContent = sentenceSlider.value;
 });
 
-summarizeBtn.addEventListener("click", summarize);
+if (tg) {
+  tg.MainButton.setText("✨ Summarize");
+  tg.MainButton.show();
+
+  tg.MainButton.onClick(summarize);
+} else {
+  summarizeBtn.addEventListener("click", summarize);
+}
 
 function summarize() {
   const text = inputText.value.trim();
