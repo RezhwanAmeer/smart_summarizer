@@ -1,0 +1,140 @@
+:root {
+  --bg-dark: #0f172a;
+  --bg-light: #f8fafc;
+  --card-dark: #111827;
+  --card-light: #ffffff;
+  --text-dark: #e5e7eb;
+  --text-light: #020617;
+  --accent: #3b82f6;
+  --radius: 14px;
+}
+
+body[data-theme="dark"] {
+  --bg: var(--bg-dark);
+  --card: var(--card-dark);
+  --text: var(--text-dark);
+}
+
+body[data-theme="light"] {
+  --bg: var(--bg-light);
+  --card: var(--card-light);
+  --text: var(--text-light);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system;
+  background: linear-gradient(160deg, var(--bg), #020617);
+  color: var(--text);
+}
+
+.app {
+  max-width: 800px;
+  margin: auto;
+  padding: 16px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  text-align: center;
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header p {
+  color: #9ca3af;
+  margin-top: 4px;
+}
+
+#themeToggle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 160px;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 14px;
+  color: var(--text);
+  border: 1px solid #334155;
+  font-size: 1rem;
+  outline:none;
+}
+
+.controls {
+  font-size: 0.9rem;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+button {
+  background: linear-gradient(135deg, #3b82f6, #1e40af);
+  border: none;
+  border-radius: var(--radius);
+  padding: 14px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+#output {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 14px;
+  animation: fadeIn 0.3s ease;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.actions button {
+  flex: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
